@@ -1,18 +1,23 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title> CATEGORIA</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list *ngFor="let item Of categorias">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-list-header style="background-color: rgba(104, 104, 104, 0.199);" no-lines>
+      {{item.nome}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let prod Of item.subcategoria" no-lines>
+        
+    <label style="font-size: x-small; color:#0bf503"  *ngIf="item.id == prod.categoria_id">{{prod.produto}}</label>  
+   
+    </ion-item>
+    
+  </ion-list>
+
 </ion-content>
